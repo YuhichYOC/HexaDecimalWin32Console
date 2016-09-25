@@ -21,19 +21,19 @@ int TestBaseHexaDecimal::GetSize()
     return mySize;
 }
 
-void TestBaseHexaDecimal::SetHexa(CList<byte> * arg)
+void TestBaseHexaDecimal::SetHexa(std::vector<byte> * arg)
 {
     hexaValue = arg;
 }
 
-CList<byte> * TestBaseHexaDecimal::GetHexa()
+std::vector<byte> * TestBaseHexaDecimal::GetHexa()
 {
     return hexaValue;
 }
 
 TestBaseHexaDecimal::TestBaseHexaDecimal()
 {
-    hexaValue = new CList<byte>();
+    hexaValue = new std::vector<byte>();
 }
 
 TestBaseHexaDecimal::~TestBaseHexaDecimal()

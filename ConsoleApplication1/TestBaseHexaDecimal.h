@@ -1,6 +1,7 @@
 #pragma once
 
 #include <afxtempl.h>
+#include <vector>
 
 enum ValueType
 {
@@ -12,14 +13,14 @@ class TestBaseHexaDecimal
 private:
     ValueType myType;
     int mySize;
-    CList<byte> * hexaValue;
+    std::vector<byte> * hexaValue;
 public:
     void SetType(ValueType arg);
     ValueType GetType();
     void SetSize(int arg);
     int GetSize();
-    void SetHexa(CList<byte> * arg);
-    CList<byte> * GetHexa();
+    void SetHexa(std::vector<byte> * arg);
+    std::vector<byte> * GetHexa();
     TestBaseHexaDecimal();
     ~TestBaseHexaDecimal();
 };
