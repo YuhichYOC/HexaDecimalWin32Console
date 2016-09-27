@@ -1,6 +1,7 @@
 #pragma once
 
 #include <afxtempl.h>
+#include <string>
 #include <vector>
 
 enum ValueType
@@ -14,6 +15,7 @@ private:
     ValueType myType;
     int mySize;
     std::vector<byte> * hexaValue;
+    std::string * myValue;
 public:
     void SetType(ValueType arg);
     ValueType GetType();
@@ -21,6 +23,10 @@ public:
     int GetSize();
     void SetHexa(std::vector<byte> * arg);
     std::vector<byte> * GetHexa();
+    void SetValue(std::string * arg);
+    std::string * GetValue();
+    void HexaToValue();
+    void ValueToHexa();
     TestBaseHexaDecimal();
     ~TestBaseHexaDecimal();
 };
