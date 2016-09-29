@@ -51,7 +51,7 @@ void TestBaseHexaDecimal::ValueToHexa()
     std::string starts = "0x";
     if (myValue->substr(0, 2) == starts)
     {
-        myValue = &(myValue->substr(2, myValue->length));
+        myValue = &(myValue->substr(2, myValue->length()));
     }
 }
 

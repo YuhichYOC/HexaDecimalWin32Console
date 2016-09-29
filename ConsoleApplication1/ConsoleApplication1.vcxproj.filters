@@ -32,10 +32,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ConsoleApplication1.cpp">
+    <ClCompile Include="TestBaseHexaDecimal.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="TestBaseHexaDecimal.cpp">
+    <ClCompile Include="HexaDecimalWin32Console.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
