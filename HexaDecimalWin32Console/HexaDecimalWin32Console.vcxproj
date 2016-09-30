@@ -146,7 +146,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BCDHexaDecimal.h" />
+    <ClInclude Include="BCDHexaDecimalTest.h" />
     <ClInclude Include="HexaByte.h" />
+    <ClInclude Include="HexaByteTest.h" />
+    <ClInclude Include="IntHexaDecimalTest.h" />
+    <ClInclude Include="RawStrHexaDecimalTest.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="RawStrHexaDecimal.h" />
@@ -154,8 +158,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BCDHexaDecimal.cpp" />
+    <ClCompile Include="BCDHexaDecimalTest.cpp" />
     <ClCompile Include="HexaByte.cpp" />
+    <ClCompile Include="HexaByteTest.cpp" />
     <ClCompile Include="HexaDecimalWin32Console.cpp" />
+    <ClCompile Include="IntHexaDecimalTest.cpp" />
+    <ClCompile Include="RawStrHexaDecimalTest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
