@@ -45,11 +45,9 @@ int IntHexaDecimal::GetValue()
 void IntHexaDecimal::HexaToValue()
 {
     myValue = 0;
-    for (size_t i = 0; i < hexaValue->size(); i++)
-    {
+    for (size_t i = 0; i < hexaValue->size(); i++) {
         int radix = 1;
-        for (uint16_t j = 0; j < hexaValue->size() - (i + 1); j++)
-        {
+        for (uint16_t j = 0; j < hexaValue->size() - (i + 1); j++) {
             radix *= 256;
         }
         myValue += hexaValue->at(i).GetValue() * radix;
@@ -60,8 +58,7 @@ void IntHexaDecimal::ValueToHexa()
 {
     uint8_t mod = 0;
     int parseValue = myValue;
-    while (parseValue != 0)
-    {
+    while (parseValue != 0) {
         mod = parseValue % 256;
         parseValue = (parseValue - mod) / 256;
 

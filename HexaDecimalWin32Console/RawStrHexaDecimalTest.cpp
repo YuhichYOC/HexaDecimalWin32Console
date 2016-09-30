@@ -16,7 +16,7 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest01()
     RawStrHexaDecimal * h = new RawStrHexaDecimal();
     h->SetValue(testValue);
     h->ValueToHexa();
-    
+
     uint8_t test01 = (uint8_t)0x01;
     uint8_t test02 = (uint8_t)0x02;
     uint8_t test03 = (uint8_t)0x03;

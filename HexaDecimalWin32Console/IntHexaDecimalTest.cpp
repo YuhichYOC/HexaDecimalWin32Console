@@ -18,7 +18,7 @@ void IntHexaDecimalTest::IntHexaDecimalTest01()
 
     uint8_t test01 = (uint8_t)0xFF;
     uint8_t test02 = (uint8_t)0xFF;
-    
+
     testSuccess = true;
     if (h->GetHexa()->at(0).GetValue() != test01) {
         testSuccess = false;

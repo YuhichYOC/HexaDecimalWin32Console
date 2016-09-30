@@ -14,9 +14,9 @@ void HexaByteTest::HexaByteTest01()
     char testValue = 123;
     HexaByte * h = new HexaByte();
     h->SetValue(testValue);
-    
+
     std::string * test = new std::string("7B");
-    
+
     if (h->GetRawStr() == test) {
         testSuccess = true;
     }

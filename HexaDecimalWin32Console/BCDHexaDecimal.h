@@ -28,6 +28,8 @@ public:
 
     void SetHexa(std::vector<HexaByte> * arg);
 
+    std::vector<HexaByte> * GetHexa();
+
     void SetValue(int arg);
 
     int GetValue();

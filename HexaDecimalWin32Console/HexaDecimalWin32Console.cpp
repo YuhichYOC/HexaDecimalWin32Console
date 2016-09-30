@@ -3,7 +3,6 @@
 
 #include "stdafx.h"
 
-
 #include "IntHexaDecimalTest.h"
 #include "RawStrHexaDecimalTest.h"
 
@@ -25,10 +24,10 @@ void IntHexaDecimalTest02()
     IntHexaDecimalTest * iTest = new IntHexaDecimalTest();
     iTest->IntHexaDecimalTest02();
     if (iTest->GetTestSuccess()) {
-        std::cout << "iTest test01 success." << "\n";
+        std::cout << "iTest test02 success." << "\n";
     }
     else {
-        std::cout << "iTest test01 failed." << "\n";
+        std::cout << "iTest test02 failed." << "\n";
     }
     delete iTest;
 }

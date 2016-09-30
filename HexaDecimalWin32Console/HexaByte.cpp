@@ -5,10 +5,8 @@
 int HexaByte::FindPositionInReplaceArray(char arg)
 {
     int retVal = 0;
-    for (int i = 0; i < 17; i++)
-    {
-        if (replaceArray[i] == arg)
-        {
+    for (int i = 0; i < 17; i++) {
+        if (replaceArray[i] == arg) {
             retVal = i;
         }
     }
@@ -39,8 +37,7 @@ char * HexaByte::GetHexa()
 std::string * HexaByte::GetRawStr()
 {
     std::string * retVal = new std::string();
-    for (int i = 0; i < 2; i++)
-    {
+    for (int i = 0; i < 2; i++) {
         retVal->push_back(hexaValue[i]);
     }
     return retVal;
