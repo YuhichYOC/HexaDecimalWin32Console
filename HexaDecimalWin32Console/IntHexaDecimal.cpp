@@ -45,31 +45,39 @@ int IntHexaDecimal::GetValue()
 void IntHexaDecimal::HexaToValue()
 {
     myValue = 0;
-    for (size_t i = 0; i < hexaValue->size(); i++) {
+    int loopCount = (int)hexaValue->size();
+    for (int i = 0; i < loopCount; i++) {
         int radix = 1;
-        for (uint16_t j = 0; j < hexaValue->size() - (i + 1); j++) {
+        for (int j = 0; j < i; j++) {
             radix *= 256;
         }
-        myValue += hexaValue->at(i).GetValue() * radix;
+        myValue += hexaValue->at(loopCount - (i + 1)).GetValue() * radix;
     }
 }
 
 void IntHexaDecimal::ValueToHexa()
 {
-    uint8_t mod = 0;
+    int mod = 0;
     int parseValue = myValue;
     while (parseValue != 0) {
         mod = parseValue % 256;
         parseValue = (parseValue - mod) / 256;
-
         HexaByte * h = new HexaByte(mod);
         hexaValue->push_back(*h);
+    }
+    if (mySize > 0 && (size_t)mySize > hexaValue->size()) {
+        int loopCount = mySize - (int)hexaValue->size();
+        for (int i = 0; i < loopCount; i++) {
+            HexaByte * h = new HexaByte((uint8_t)0);
+            hexaValue->push_back(*h);
+        }
     }
     std::reverse(std::begin(*hexaValue), std::end(*hexaValue));
 }
 
 IntHexaDecimal::IntHexaDecimal()
 {
+    mySize = -1;
     hexaValue = new std::vector<HexaByte>();
 }
 
