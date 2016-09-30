@@ -195,6 +195,8 @@ int main()
 
     RawStrHexaDecimalTest01();
     RawStrHexaDecimalTest02();
+    RawStrHexaDecimalTest03();
+    RawStrHexaDecimalTest04();
 
     std::string testOut01;
     std::cin >> testOut01;

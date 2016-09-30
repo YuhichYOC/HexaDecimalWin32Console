@@ -55,8 +55,8 @@ void RawStrHexaDecimal::HexaToValue()
             myValue->push_back(hexaValue->at(i).GetRawStr()->at(1));
         }
         else {
-            myValue->push_back('\0');
-            myValue->push_back('\0');
+            myValue->push_back('0');
+            myValue->push_back('0');
         }
     }
 }
@@ -77,8 +77,9 @@ void RawStrHexaDecimal::ValueToHexa()
         hexaValue->push_back(*h);
     }
     if (mySize > 0 && (size_t)mySize > hexaValue->size()) {
-        for (size_t j = hexaValue->size() - (size_t)mySize; j < hexaValue->size(); j++) {
-            char addChar[3] = { '\0', '\0', '\0' };
+        int loopCount = mySize - (int)hexaValue->size();
+        for (int j = 0; j < loopCount; j++) {
+            char addChar[3] = { '0', '0', '\0' };
             HexaByte * h = new HexaByte(addChar);
             hexaValue->push_back(*h);
         }
