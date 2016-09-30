@@ -19,11 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C84A5E09-C0A0-4A60-A033-3E8B3F6F5D47}</ProjectGuid>
+    <ProjectGuid>{EDB798C2-0A99-4589-AECA-3C28F7F834B3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <RootNamespace>HexaDecimalWin32Console</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>HexaDecimalWin32Console</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -146,19 +145,37 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BCDHexaDecimal.h" />
+    <ClInclude Include="BCDHexaDecimalTest.h" />
+    <ClInclude Include="DateBCDHexaDecimal.h" />
+    <ClInclude Include="DateBCDHexaDecimalTest.h" />
+    <ClInclude Include="HexaByte.h" />
+    <ClInclude Include="HexaByteTest.h" />
+    <ClInclude Include="IntHexaDecimal.h" />
+    <ClInclude Include="IntHexaDecimalTest.h" />
+    <ClInclude Include="RawStrHexaDecimal.h" />
+    <ClInclude Include="RawStrHexaDecimalTest.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="TestBaseHexaDecimal.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BCDHexaDecimal.cpp" />
+    <ClCompile Include="BCDHexaDecimalTest.cpp" />
+    <ClCompile Include="DateBCDHexaDecimal.cpp" />
+    <ClCompile Include="DateBCDHexaDecimalTest.cpp" />
+    <ClCompile Include="HexaByte.cpp" />
+    <ClCompile Include="HexaByteTest.cpp" />
     <ClCompile Include="HexaDecimalWin32Console.cpp" />
+    <ClCompile Include="IntHexaDecimal.cpp" />
+    <ClCompile Include="IntHexaDecimalTest.cpp" />
+    <ClCompile Include="RawStrHexaDecimal.cpp" />
+    <ClCompile Include="RawStrHexaDecimalTest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TestBaseHexaDecimal.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
