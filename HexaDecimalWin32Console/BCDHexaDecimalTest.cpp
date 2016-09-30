@@ -1,4 +1,5 @@
 #include "stdafx.h"
+
 #include "BCDHexaDecimalTest.h"
 
 bool BCDHexaDecimalTest::GetTestSuccess()

@@ -71,5 +71,4 @@ BCDHexaDecimal::BCDHexaDecimal()
 
 BCDHexaDecimal::~BCDHexaDecimal()
 {
-    delete hexaValue;
 }

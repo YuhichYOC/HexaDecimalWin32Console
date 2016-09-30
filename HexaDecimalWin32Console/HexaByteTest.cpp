@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "HexaByteTest.h"
 
+#include "HexaByteTest.h"
 
 bool HexaByteTest::GetTestSuccess()
 {
@@ -21,7 +21,6 @@ void HexaByteTest::HexaByteTest01()
         testSuccess = true;
     }
 
-    delete test;
     delete h;
 }
 
@@ -45,7 +44,6 @@ void HexaByteTest::HexaByteTest02()
 HexaByteTest::HexaByteTest()
 {
 }
-
 
 HexaByteTest::~HexaByteTest()
 {

@@ -1,4 +1,5 @@
 #include "stdafx.h"
+
 #include "RawStrHexaDecimalTest.h"
 
 bool RawStrHexaDecimalTest::GetTestSuccess()
@@ -16,11 +17,11 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest01()
     h->SetValue(testValue);
     h->ValueToHexa();
     
-    char test01 = 1;
-    char test02 = 2;
-    char test03 = 3;
-    char test04 = 4;
-    char test05 = 5;
+    uint8_t test01 = (uint8_t)0x01;
+    uint8_t test02 = (uint8_t)0x02;
+    uint8_t test03 = (uint8_t)0x03;
+    uint8_t test04 = (uint8_t)0x04;
+    uint8_t test05 = (uint8_t)0x05;
 
     testSuccess = true;
     if (h->GetHexa()->at(0).GetValue() != test01) {
@@ -40,7 +41,6 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest01()
     }
 
     delete h;
-    delete testValue;
 }
 
 void RawStrHexaDecimalTest::RawStrHexaDecimalTest02()
@@ -65,9 +65,7 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest02()
         testSuccess = true;
     }
 
-    delete test;
     delete h;
-    delete testValue;
     delete h1;
     delete h2;
 }

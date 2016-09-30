@@ -1,4 +1,5 @@
 #include "stdafx.h"
+
 #include "IntHexaDecimalTest.h"
 
 bool IntHexaDecimalTest::GetTestSuccess()
@@ -15,8 +16,8 @@ void IntHexaDecimalTest::IntHexaDecimalTest01()
     h->SetValue(testValue);
     h->ValueToHexa();
 
-    char test01 = 0xFF;
-    char test02 = 0xFF;
+    uint8_t test01 = (uint8_t)0xFF;
+    uint8_t test02 = (uint8_t)0xFF;
     
     testSuccess = true;
     if (h->GetHexa()->at(0).GetValue() != test01) {
@@ -50,7 +51,6 @@ void IntHexaDecimalTest::IntHexaDecimalTest02()
     }
 
     delete h;
-    delete testValue;
     delete h1;
     delete h2;
 }
