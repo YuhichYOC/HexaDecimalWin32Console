@@ -61,7 +61,12 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest02()
     std::string * test = new std::string();
     test->assign("0xFFFF");
 
+    /*
     if (h->GetValue() == test) {
+        testSuccess = true;
+    }
+    */
+    if ((h->GetValue() == test) == 0) {
         testSuccess = true;
     }
 

@@ -4,6 +4,7 @@
 #include "stdafx.h"
 
 #include "BCDHexaDecimalTest.h"
+#include "DateBCDHexaDecimalTest.h"
 #include "HexaByteTest.h"
 #include "IntHexaDecimalTest.h"
 #include "RawStrHexaDecimalTest.h"
@@ -34,6 +35,32 @@ void BCDHexaDecimalTest02()
     delete bTest;
 }
 
+void DateBCDHexaDecimalTest01()
+{
+    DateBCDHexaDecimalTest * dTest = new DateBCDHexaDecimalTest();
+    dTest->DateBCDHexaDecimalTest01();
+    if (dTest->GetTestSuccess()) {
+        std::cout << "dTest test01 success." << "\n";
+    }
+    else {
+        std::cout << "dTest test01 failed." << "\n";
+    }
+    delete dTest;
+}
+
+void DateBCDHexaDecimalTest02()
+{
+    DateBCDHexaDecimalTest * dTest = new DateBCDHexaDecimalTest();
+    dTest->DateBCDHexaDecimalTest02();
+    if (dTest->GetTestSuccess()) {
+        std::cout << "dTest test02 success." << "\n";
+    }
+    else {
+        std::cout << "dTest test02 failed." << "\n";
+    }
+    delete dTest;
+}
+
 void HexaByteTest01()
 {
     HexaByteTest * hTest = new HexaByteTest();
@@ -42,7 +69,7 @@ void HexaByteTest01()
         std::cout << "hTest test01 success." << "\n";
     }
     else {
-        std::cout << "hTest test01 failer." << "\n";
+        std::cout << "hTest test01 failed." << "\n";
     }
     delete hTest;
 }
@@ -116,7 +143,7 @@ void RawStrHexaDecimalTest02()
 {
     RawStrHexaDecimalTest * rTest = new RawStrHexaDecimalTest();
     rTest->RawStrHexaDecimalTest02();
-    if (!rTest->GetTestSuccess()) {
+    if (rTest->GetTestSuccess()) {
         std::cout << "rTest test02 success." << "\n";
     }
     else {
@@ -129,6 +156,9 @@ int main()
 {
     BCDHexaDecimalTest01();
     BCDHexaDecimalTest02();
+
+    DateBCDHexaDecimalTest01();
+    DateBCDHexaDecimalTest02();
 
     HexaByteTest01();
     HexaByteTest02();

@@ -90,8 +90,10 @@ void DateBCDHexaDecimal::ValueToHexa()
 
 DateBCDHexaDecimal::DateBCDHexaDecimal()
 {
+    hexaValue = new std::vector<HexaByte>();
 }
 
 DateBCDHexaDecimal::~DateBCDHexaDecimal()
 {
+    delete hexaValue;
 }
