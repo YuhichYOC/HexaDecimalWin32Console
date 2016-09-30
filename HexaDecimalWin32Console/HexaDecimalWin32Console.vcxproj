@@ -147,6 +147,8 @@
   <ItemGroup>
     <ClInclude Include="BCDHexaDecimal.h" />
     <ClInclude Include="BCDHexaDecimalTest.h" />
+    <ClInclude Include="DateBCDHexaDecimal.h" />
+    <ClInclude Include="DateBCDHexaDecimalTest.h" />
     <ClInclude Include="HexaByte.h" />
     <ClInclude Include="HexaByteTest.h" />
     <ClInclude Include="IntHexaDecimalTest.h" />
@@ -159,6 +161,8 @@
   <ItemGroup>
     <ClCompile Include="BCDHexaDecimal.cpp" />
     <ClCompile Include="BCDHexaDecimalTest.cpp" />
+    <ClCompile Include="DateBCDHexaDecimal.cpp" />
+    <ClCompile Include="DateBCDHexaDecimalTest.cpp" />
     <ClCompile Include="HexaByte.cpp" />
     <ClCompile Include="HexaByteTest.cpp" />
     <ClCompile Include="HexaDecimalWin32Console.cpp" />
