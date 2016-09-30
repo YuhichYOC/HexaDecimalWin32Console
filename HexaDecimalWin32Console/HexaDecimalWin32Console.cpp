@@ -152,6 +152,32 @@ void RawStrHexaDecimalTest02()
     delete rTest;
 }
 
+void RawStrHexaDecimalTest03()
+{
+    RawStrHexaDecimalTest * rTest = new RawStrHexaDecimalTest();
+    rTest->RawStrHexaDecimalTest03();
+    if (rTest->GetTestSuccess()) {
+        std::cout << "rTest test03 success." << "\n";
+    }
+    else {
+        std::cout << "rTest test03 failed." << "\n";
+    }
+    delete rTest;
+}
+
+void RawStrHexaDecimalTest04()
+{
+    RawStrHexaDecimalTest * rTest = new RawStrHexaDecimalTest();
+    rTest->RawStrHexaDecimalTest04();
+    if (rTest->GetTestSuccess()) {
+        std::cout << "rTest test04 success." << "\n";
+    }
+    else {
+        std::cout << "rTest test04 failed." << "\n";
+    }
+    delete rTest;
+}
+
 int main()
 {
     BCDHexaDecimalTest01();

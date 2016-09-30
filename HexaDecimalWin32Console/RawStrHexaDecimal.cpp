@@ -45,9 +45,19 @@ std::string * RawStrHexaDecimal::GetValue()
 void RawStrHexaDecimal::HexaToValue()
 {
     myValue->assign("0x");
-    for (size_t i = 0; i < hexaValue->size(); i++) {
-        myValue->push_back(hexaValue->at(i).GetRawStr()->at(0));
-        myValue->push_back(hexaValue->at(i).GetRawStr()->at(1));
+    size_t loopCount = hexaValue->size();
+    if (mySize > 0 && (size_t)mySize < loopCount) {
+        loopCount = (size_t)mySize;
+    }
+    for (size_t i = 0; i < loopCount; i++) {
+        if (i < hexaValue->size()) {
+            myValue->push_back(hexaValue->at(i).GetRawStr()->at(0));
+            myValue->push_back(hexaValue->at(i).GetRawStr()->at(1));
+        }
+        else {
+            myValue->push_back('\0');
+            myValue->push_back('\0');
+        }
     }
 }
 
@@ -66,10 +76,18 @@ void RawStrHexaDecimal::ValueToHexa()
         HexaByte * h = new HexaByte(addChar);
         hexaValue->push_back(*h);
     }
+    if (mySize > 0 && (size_t)mySize > hexaValue->size()) {
+        for (size_t j = hexaValue->size() - (size_t)mySize; j < hexaValue->size(); j++) {
+            char addChar[3] = { '\0', '\0', '\0' };
+            HexaByte * h = new HexaByte(addChar);
+            hexaValue->push_back(*h);
+        }
+    }
 }
 
 RawStrHexaDecimal::RawStrHexaDecimal()
 {
+    mySize = -1;
     hexaValue = new std::vector<HexaByte>();
     myValue = new std::string();
 }

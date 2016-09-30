@@ -16,6 +16,10 @@ public:
 
     void RawStrHexaDecimalTest02();
 
+    void RawStrHexaDecimalTest03();
+
+    void RawStrHexaDecimalTest04();
+
     RawStrHexaDecimalTest();
 
     ~RawStrHexaDecimalTest();
