@@ -16,6 +16,8 @@ public:
 
     void HexaByteTest02();
 
+    void HexaByteTest03();
+
     HexaByteTest();
 
     ~HexaByteTest();

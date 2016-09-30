@@ -31,6 +31,8 @@ public:
 
     std::string * GetRawStr();
 
+    std::string * GetBCDStr();
+
     HexaByte();
 
     HexaByte(uint8_t arg);

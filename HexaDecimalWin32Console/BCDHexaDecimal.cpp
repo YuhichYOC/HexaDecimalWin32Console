@@ -44,12 +44,11 @@ int BCDHexaDecimal::GetValue()
 
 void BCDHexaDecimal::HexaToValue()
 {
-    std::string parseValue;
+    std::string * parseValue = new std::string();
     for (size_t i = 0; i < hexaValue->size(); i++) {
-        parseValue.append(hexaValue->at(i).GetRawStr()[0]);
-        parseValue.append(hexaValue->at(i).GetRawStr()[1]);
+        parseValue->append(*hexaValue->at(i).GetBCDStr());
     }
-    myValue = std::stoi(parseValue);
+    myValue = std::stoi(*parseValue);
 }
 
 void BCDHexaDecimal::ValueToHexa()
