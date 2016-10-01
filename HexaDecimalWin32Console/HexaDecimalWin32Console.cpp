@@ -126,6 +126,32 @@ void IntHexaDecimalTest02()
     delete iTest;
 }
 
+void IntHexaDecimalTest03()
+{
+    IntHexaDecimalTest * iTest = new IntHexaDecimalTest();
+    iTest->IntHexaDecimalTest03();
+    if (iTest->GetTestSuccess()) {
+        std::cout << "iTest test03 success." << "\n";
+    }
+    else {
+        std::cout << "iTest test03 failed." << "\n";
+    }
+    delete iTest;
+}
+
+void IntHexaDecimalTest04()
+{
+    IntHexaDecimalTest * iTest = new IntHexaDecimalTest();
+    iTest->IntHexaDecimalTest04();
+    if (iTest->GetTestSuccess()) {
+        std::cout << "iTest test04 success." << "\n";
+    }
+    else {
+        std::cout << "iTest test04 failed." << "\n";
+    }
+    delete iTest;
+}
+
 void RawStrHexaDecimalTest01()
 {
     RawStrHexaDecimalTest * rTest = new RawStrHexaDecimalTest();
@@ -192,9 +218,13 @@ int main()
 
     IntHexaDecimalTest01();
     IntHexaDecimalTest02();
+    IntHexaDecimalTest03();
+    IntHexaDecimalTest04();
 
     RawStrHexaDecimalTest01();
     RawStrHexaDecimalTest02();
+    RawStrHexaDecimalTest03();
+    RawStrHexaDecimalTest04();
 
     std::string testOut01;
     std::cin >> testOut01;

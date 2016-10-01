@@ -45,24 +45,36 @@ int IntHexaDecimal::GetValue()
 void IntHexaDecimal::HexaToValue()
 {
     myValue = 0;
-    for (size_t i = 0; i < hexaValue->size(); i++) {
+
+    int iLoopCount = (int)hexaValue->size();
+    for (int i = iLoopCount; i > 0; i--) {
         int radix = 1;
-        for (uint16_t j = 0; j < hexaValue->size() - (i + 1); j++) {
+        int jLoopCount = (int)hexaValue->size() - i;
+        for (int j = 0; j < jLoopCount; j++) {
             radix *= 256;
         }
-        myValue += hexaValue->at(i).GetValue() * radix;
+        myValue += hexaValue->at(i - 1).GetValue() * radix;
     }
 }
 
 void IntHexaDecimal::ValueToHexa()
 {
+    hexaValue->clear();
+
     uint8_t mod = 0;
     int parseValue = myValue;
     while (parseValue != 0) {
         mod = parseValue % 256;
-        parseValue = (parseValue - mod) / 256;
-
         HexaByte * h = new HexaByte(mod);
+        hexaValue->push_back(*h);
+
+        parseValue = parseValue / 256;
+    }
+
+    int iLoopCount = mySize - (int)hexaValue->size();
+    for (int i = 0; i < iLoopCount; i++) {
+        char add[3] = { '0', '0', '\0' };
+        HexaByte * h = new HexaByte(add);
         hexaValue->push_back(*h);
     }
     std::reverse(std::begin(*hexaValue), std::end(*hexaValue));
