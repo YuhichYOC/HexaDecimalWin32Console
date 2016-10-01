@@ -16,6 +16,10 @@ public:
 
     void BCDHexaDecimalTest02();
 
+    void BCDHexaDecimalTest03();
+
+    void BCDHexaDecimalTest04();
+
     BCDHexaDecimalTest();
 
     ~BCDHexaDecimalTest();

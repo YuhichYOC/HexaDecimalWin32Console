@@ -39,6 +39,48 @@ void DateBCDHexaDecimal::SetValue(int arg1yyyy, int arg2mm, int arg3dd)
     dd = arg3dd;
 }
 
+std::string * DateBCDHexaDecimal::YYYYtoString()
+{
+    std::string * retVal = new std::string();
+    if (yyyy / 1000 >= 1) {
+        retVal->append(std::to_string(yyyy));
+    }
+    else if (yyyy / 100 >= 1) {
+        retVal->append("0").append(std::to_string(yyyy));
+    }
+    else if (yyyy / 10 >= 1) {
+        retVal->append("00").append(std::to_string(yyyy));
+    }
+    else {
+        retVal->append("000").append(std::to_string(yyyy));
+    }
+    return retVal;
+}
+
+std::string * DateBCDHexaDecimal::MMtoString()
+{
+    std::string * retVal = new std::string();
+    if (mm / 10 >= 1) {
+        retVal->append(std::to_string(mm));
+    }
+    else {
+        retVal->append("0").append(std::to_string(mm));
+    }
+    return retVal;
+}
+
+std::string * DateBCDHexaDecimal::DDtoString()
+{
+    std::string * retVal = new std::string();
+    if (dd / 10 >= 1) {
+        retVal->append(std::to_string(dd));
+    }
+    else {
+        retVal->append("0").append(std::to_string(dd));
+    }
+    return retVal;
+}
+
 std::string * DateBCDHexaDecimal::GetBCDStr()
 {
     std::string * retVal = new std::string();
@@ -59,26 +101,15 @@ void DateBCDHexaDecimal::HexaToValue()
 void DateBCDHexaDecimal::ValueToHexa()
 {
     std::string * parseValue = new std::string();
-    if (std::to_string(yyyy).length() % 2 == 0) {
-        parseValue->append(std::to_string(yyyy));
-    }
-    else {
-        parseValue->append("0");
-        parseValue->append(std::to_string(yyyy));
-    }
-    if (std::to_string(mm).length() == 2) {
-        parseValue->append(std::to_string(mm));
-    }
-    else {
-        parseValue->append("0");
-        parseValue->append(std::to_string(mm));
-    }
-    if (std::to_string(dd).length() == 2) {
-        parseValue->append(std::to_string(dd));
-    }
-    else {
-        parseValue->append("0");
-        parseValue->append(std::to_string(dd));
+    parseValue->append(*YYYYtoString());
+    parseValue->append(*MMtoString());
+    parseValue->append(*DDtoString());
+    if (mySize > 4) {
+        for (int i = 0; i < mySize - 4; i++) {
+            char addChar[3] = { '0', '0', '\0' };
+            HexaByte * h = new HexaByte(addChar);
+            hexaValue->push_back(*h);
+        }
     }
     for (size_t i = 0; i < parseValue->length() / 2; i++) {
         std::string oneChar = parseValue->substr(i * 2, i * 2 + 2);
