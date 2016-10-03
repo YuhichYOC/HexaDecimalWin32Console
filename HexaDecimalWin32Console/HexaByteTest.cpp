@@ -19,7 +19,7 @@ void HexaByteTest::HexaByteTest01()
 
     /*  std::string operator == returns "0" ( cast into bool then returns "false" ) when left side equals right side.
     if (h->GetRawStr() == test) {
-        testSuccess = true;
+    testSuccess = true;
     }
     */
     if ((h->GetRawStr() == test) == 0) {
@@ -58,7 +58,7 @@ void HexaByteTest::HexaByteTest03()
 
     /*  std::string operator == returns "0" ( cast into bool then returns "false" ) when left side equals right side.
     if (h->GetBCDStr() == test) {
-        testSuccess = true;
+    testSuccess = true;
     }
     */
     if ((h->GetBCDStr() == test) == 0) {

@@ -16,6 +16,10 @@ public:
 
     void DateBCDHexaDecimalTest02();
 
+    void DateBCDHexaDecimalTest03();
+
+    void DateBCDHexaDecimalTest04();
+
     DateBCDHexaDecimalTest();
 
     ~DateBCDHexaDecimalTest();

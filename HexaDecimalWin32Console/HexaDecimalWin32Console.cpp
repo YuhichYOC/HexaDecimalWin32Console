@@ -35,6 +35,32 @@ void BCDHexaDecimalTest02()
     delete bTest;
 }
 
+void BCDHexaDecimalTest03()
+{
+    BCDHexaDecimalTest * bTest = new BCDHexaDecimalTest();
+    bTest->BCDHexaDecimalTest03();
+    if (bTest->GetTestSuccess()) {
+        std::cout << "bTest test03 success." << "\n";
+    }
+    else {
+        std::cout << "bTest test03 failed." << "\n";
+    }
+    delete bTest;
+}
+
+void BCDHexaDecimalTest04()
+{
+    BCDHexaDecimalTest * bTest = new BCDHexaDecimalTest();
+    bTest->BCDHexaDecimalTest04();
+    if (bTest->GetTestSuccess()) {
+        std::cout << "bTest test04 success." << "\n";
+    }
+    else {
+        std::cout << "bTest test04 failed." << "\n";
+    }
+    delete bTest;
+}
+
 void DateBCDHexaDecimalTest01()
 {
     DateBCDHexaDecimalTest * dTest = new DateBCDHexaDecimalTest();
@@ -57,6 +83,32 @@ void DateBCDHexaDecimalTest02()
     }
     else {
         std::cout << "dTest test02 failed." << "\n";
+    }
+    delete dTest;
+}
+
+void DateBCDHexaDecimalTest03()
+{
+    DateBCDHexaDecimalTest * dTest = new DateBCDHexaDecimalTest();
+    dTest->DateBCDHexaDecimalTest03();
+    if (dTest->GetTestSuccess()) {
+        std::cout << "dTest test03 success." << "\n";
+    }
+    else {
+        std::cout << "dTest test03 failed." << "\n";
+    }
+    delete dTest;
+}
+
+void DateBCDHexaDecimalTest04()
+{
+    DateBCDHexaDecimalTest * dTest = new DateBCDHexaDecimalTest();
+    dTest->DateBCDHexaDecimalTest04();
+    if (dTest->GetTestSuccess()) {
+        std::cout << "dTest test04 success." << "\n";
+    }
+    else {
+        std::cout << "dTest test04 failed." << "\n";
     }
     delete dTest;
 }
@@ -126,6 +178,32 @@ void IntHexaDecimalTest02()
     delete iTest;
 }
 
+void IntHexaDecimalTest03()
+{
+    IntHexaDecimalTest * iTest = new IntHexaDecimalTest();
+    iTest->IntHexaDecimalTest03();
+    if (iTest->GetTestSuccess()) {
+        std::cout << "iTest test03 success." << "\n";
+    }
+    else {
+        std::cout << "iTest test03 failed." << "\n";
+    }
+    delete iTest;
+}
+
+void IntHexaDecimalTest04()
+{
+    IntHexaDecimalTest * iTest = new IntHexaDecimalTest();
+    iTest->IntHexaDecimalTest04();
+    if (iTest->GetTestSuccess()) {
+        std::cout << "iTest test04 success." << "\n";
+    }
+    else {
+        std::cout << "iTest test04 failed." << "\n";
+    }
+    delete iTest;
+}
+
 void RawStrHexaDecimalTest01()
 {
     RawStrHexaDecimalTest * rTest = new RawStrHexaDecimalTest();
@@ -182,9 +260,13 @@ int main()
 {
     BCDHexaDecimalTest01();
     BCDHexaDecimalTest02();
+    BCDHexaDecimalTest03();
+    BCDHexaDecimalTest04();
 
     DateBCDHexaDecimalTest01();
     DateBCDHexaDecimalTest02();
+    DateBCDHexaDecimalTest03();
+    DateBCDHexaDecimalTest04();
 
     HexaByteTest01();
     HexaByteTest02();
@@ -192,9 +274,13 @@ int main()
 
     IntHexaDecimalTest01();
     IntHexaDecimalTest02();
+    IntHexaDecimalTest03();
+    IntHexaDecimalTest04();
 
     RawStrHexaDecimalTest01();
     RawStrHexaDecimalTest02();
+    RawStrHexaDecimalTest03();
+    RawStrHexaDecimalTest04();
 
     std::string testOut01;
     std::cin >> testOut01;

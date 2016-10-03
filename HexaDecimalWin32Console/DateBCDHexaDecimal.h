@@ -16,9 +16,15 @@ private:
 
     int yyyy;
 
+    std::string * YYYYtoString();
+
     int mm;
 
+    std::string * MMtoString();
+
     int dd;
+
+    std::string * DDtoString();
 
 public:
 

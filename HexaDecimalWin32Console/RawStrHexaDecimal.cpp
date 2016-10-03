@@ -45,12 +45,14 @@ std::string * RawStrHexaDecimal::GetValue()
 void RawStrHexaDecimal::HexaToValue()
 {
     myValue->assign("0x");
-    size_t loopCount = hexaValue->size();
-    if (mySize > 0 && (size_t)mySize < loopCount) {
-        loopCount = (size_t)mySize;
+
+    int loopCount = (int)hexaValue->size();
+    if (mySize > 0 && mySize < loopCount) {
+        loopCount = mySize;
     }
-    for (size_t i = 0; i < loopCount; i++) {
-        if (i < hexaValue->size()) {
+
+    for (int i = 0; i < loopCount; i++) {
+        if (i < loopCount) {
             myValue->push_back(hexaValue->at(i).GetRawStr()->at(0));
             myValue->push_back(hexaValue->at(i).GetRawStr()->at(1));
         }
@@ -63,6 +65,8 @@ void RawStrHexaDecimal::HexaToValue()
 
 void RawStrHexaDecimal::ValueToHexa()
 {
+    hexaValue->clear();
+
     std::string parseValue = *myValue;
     if (parseValue.substr(0, 2) == "0x") {
         parseValue.assign(parseValue.substr(2, parseValue.length() - 2));
@@ -70,15 +74,18 @@ void RawStrHexaDecimal::ValueToHexa()
     if (parseValue.length() % 2 != 0) {
         parseValue.insert(0, "0");
     }
-    for (size_t i = 0; i < parseValue.length() / 2; i++) {
+
+    int iLoopCount = (int)parseValue.length() / 2;
+    for (int i = 0; i < iLoopCount; i++) {
         std::string oneChar = parseValue.substr(i * 2, i * 2 + 2);
         char addChar[3] = { oneChar[0], oneChar[1], '\0' };
         HexaByte * h = new HexaByte(addChar);
         hexaValue->push_back(*h);
     }
-    if (mySize > 0 && (size_t)mySize > hexaValue->size()) {
-        for (size_t j = hexaValue->size() - (size_t)mySize; j < hexaValue->size(); j++) {
-            char addChar[3] = { '\0', '\0', '\0' };
+    int jLoopCount = mySize - (int)hexaValue->size();
+    if (mySize > 0 && 0 < jLoopCount) {
+        for (int j = 0; j < jLoopCount; j++) {
+            char addChar[3] = { '0', '0', '\0' };
             HexaByte * h = new HexaByte(addChar);
             hexaValue->push_back(*h);
         }

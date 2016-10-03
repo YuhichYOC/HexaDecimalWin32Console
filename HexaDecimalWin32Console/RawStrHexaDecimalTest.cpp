@@ -63,7 +63,7 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest02()
 
     /*
     if (h->GetValue() == test) {
-        testSuccess = true;
+    testSuccess = true;
     }
     */
     if ((h->GetValue() == test) == 0) {
