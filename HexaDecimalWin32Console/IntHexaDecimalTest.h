@@ -16,10 +16,6 @@ public:
 
     void IntHexaDecimalTest02();
 
-    void IntHexaDecimalTest03();
-
-    void IntHexaDecimalTest04();
-
     IntHexaDecimalTest();
 
     ~IntHexaDecimalTest();
