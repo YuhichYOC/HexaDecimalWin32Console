@@ -22,29 +22,39 @@ int RawStrHexaDecimal::GetSize()
     return mySize;
 }
 
-void RawStrHexaDecimal::SetHexa(std::vector<HexaByte> * arg)
+void RawStrHexaDecimal::SetHexa(vector<HexaByte> * arg)
 {
     hexaValue = arg;
 }
 
-std::vector<HexaByte> * RawStrHexaDecimal::GetHexa()
+vector<HexaByte> * RawStrHexaDecimal::GetHexa()
 {
     return hexaValue;
 }
 
-void RawStrHexaDecimal::SetValue(std::string * arg)
+void RawStrHexaDecimal::SetValue(string arg)
 {
-    myValue = arg;
+    if (arg.substr(0, 2) == "0x") {
+        myValue.assign(arg);
+    }
+    else {
+        myValue.assign("0x");
+        myValue.append(arg);
+    }
 }
 
-std::string * RawStrHexaDecimal::GetValue()
+string RawStrHexaDecimal::GetValue()
 {
+    myValue.assign("0x");
+    for (size_t i = 0; i < hexaValue->size(); i++) {
+        myValue.append(hexaValue->at(i).GetRawStr());
+    }
     return myValue;
 }
 
 void RawStrHexaDecimal::HexaToValue()
 {
-    myValue->assign("0x");
+    myValue.assign("0x");
 
     int loopCount = (int)hexaValue->size();
     if (mySize > 0 && mySize < loopCount) {
@@ -53,12 +63,10 @@ void RawStrHexaDecimal::HexaToValue()
 
     for (int i = 0; i < loopCount; i++) {
         if (i < loopCount) {
-            myValue->push_back(hexaValue->at(i).GetRawStr()->at(0));
-            myValue->push_back(hexaValue->at(i).GetRawStr()->at(1));
+            myValue.append(hexaValue->at(i).GetRawStr());
         }
         else {
-            myValue->push_back('\0');
-            myValue->push_back('\0');
+            myValue.append("00");
         }
     }
 }
@@ -67,7 +75,7 @@ void RawStrHexaDecimal::ValueToHexa()
 {
     hexaValue->clear();
 
-    std::string parseValue = *myValue;
+    string parseValue = myValue;
     if (parseValue.substr(0, 2) == "0x") {
         parseValue.assign(parseValue.substr(2, parseValue.length() - 2));
     }
@@ -77,7 +85,7 @@ void RawStrHexaDecimal::ValueToHexa()
 
     int iLoopCount = (int)parseValue.length() / 2;
     for (int i = 0; i < iLoopCount; i++) {
-        std::string oneChar = parseValue.substr(i * 2, i * 2 + 2);
+        string oneChar = parseValue.substr(i * 2, 2);
         char addChar[3] = { oneChar[0], oneChar[1], '\0' };
         HexaByte * h = new HexaByte(addChar);
         hexaValue->push_back(*h);
@@ -95,12 +103,10 @@ void RawStrHexaDecimal::ValueToHexa()
 RawStrHexaDecimal::RawStrHexaDecimal()
 {
     mySize = -1;
-    hexaValue = new std::vector<HexaByte>();
-    myValue = new std::string();
+    hexaValue = new vector<HexaByte>();
 }
 
 RawStrHexaDecimal::~RawStrHexaDecimal()
 {
     delete hexaValue;
-    delete myValue;
 }

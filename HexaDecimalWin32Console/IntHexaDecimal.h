@@ -12,7 +12,7 @@ private:
 
     int mySize;
 
-    std::vector<HexaByte> * hexaValue;
+    vector<HexaByte> * hexaValue;
 
     int myValue;
 
@@ -26,9 +26,9 @@ public:
 
     int GetSize();
 
-    void SetHexa(std::vector<HexaByte> * arg);
+    void SetHexa(vector<HexaByte> * arg);
 
-    std::vector<HexaByte> * GetHexa();
+    vector<HexaByte> * GetHexa();
 
     void SetValue(int arg);
 

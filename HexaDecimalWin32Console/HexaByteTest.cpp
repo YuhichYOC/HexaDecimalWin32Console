@@ -15,14 +15,14 @@ void HexaByteTest::HexaByteTest01()
     HexaByte * h = new HexaByte();
     h->SetValue(testValue);
 
-    std::string * test = new std::string("7B");
+    string test("7B");
 
-    /*  std::string operator == returns "0" ( cast into bool then returns "false" ) when left side equals right side.
-    if (h->GetRawStr() == test) {
-    testSuccess = true;
+    /*
+    if ((h->GetRawStr() == test) == 0) {
+        testSuccess = true;
     }
     */
-    if ((h->GetRawStr() == test) == 0) {
+    if (h->GetRawStr() == test) {
         testSuccess = true;
     }
 
@@ -54,14 +54,14 @@ void HexaByteTest::HexaByteTest03()
     HexaByte * h = new HexaByte();
     h->SetValue(testValue);
 
-    std::string * test = new std::string("20");
+    string test("20");
 
-    /*  std::string operator == returns "0" ( cast into bool then returns "false" ) when left side equals right side.
-    if (h->GetBCDStr() == test) {
-    testSuccess = true;
+    /*
+    if ((h->GetBCDStr() == test) == 0) {
+        testSuccess = true;
     }
     */
-    if ((h->GetBCDStr() == test) == 0) {
+    if (h->GetBCDStr() == test) {
         testSuccess = true;
     }
 

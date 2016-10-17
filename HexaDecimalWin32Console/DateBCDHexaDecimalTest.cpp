@@ -52,7 +52,7 @@ void DateBCDHexaDecimalTest::DateBCDHexaDecimalTest02()
     h3->SetValue(6);
     HexaByte * h4 = new HexaByte();
     h4->SetValue(23);
-    std::vector<HexaByte> * testValue = new std::vector<HexaByte>();
+    vector<HexaByte> * testValue = new vector<HexaByte>();
     testValue->push_back(*h1);
     testValue->push_back(*h2);
     testValue->push_back(*h3);
@@ -60,11 +60,17 @@ void DateBCDHexaDecimalTest::DateBCDHexaDecimalTest02()
     DateBCDHexaDecimal * h = new DateBCDHexaDecimal();
     h->SetHexa(testValue);
     h->HexaToValue();
+    h->ValueToHexa();
 
-    std::string * test = new std::string();
-    test->assign("20160623");
+    string test;
+    test.assign("20160623");
 
+    /*
     if ((h->GetBCDStr() == test) == 0) {
+    testSuccess = true;
+    }
+    */
+    if (h->GetBCDStr() == test) {
         testSuccess = true;
     }
 
@@ -134,7 +140,7 @@ void DateBCDHexaDecimalTest::DateBCDHexaDecimalTest04()
     h3->SetValue(6);
     HexaByte * h4 = new HexaByte();
     h4->SetValue(23);
-    std::vector<HexaByte> * testValue = new std::vector<HexaByte>();
+    vector<HexaByte> * testValue = new vector<HexaByte>();
     testValue->push_back(*h1);
     testValue->push_back(*h2);
     testValue->push_back(*h3);
@@ -144,11 +150,17 @@ void DateBCDHexaDecimalTest::DateBCDHexaDecimalTest04()
     h->SetHexa(testValue);
     h->SetSize(testSize);
     h->HexaToValue();
+    h->ValueToHexa();
 
-    std::string * test = new std::string();
-    test->assign("00000020160623");
+    string test;
+    test.assign("00000020160623");
 
+    /*
     if ((h->GetBCDStr() == test) == 0) {
+    testSuccess = true;
+    }
+    */
+    if (h->GetBCDStr() == test) {
         testSuccess = true;
     }
 

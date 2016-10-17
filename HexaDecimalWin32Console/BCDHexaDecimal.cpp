@@ -22,12 +22,12 @@ int BCDHexaDecimal::GetSize()
     return mySize;
 }
 
-void BCDHexaDecimal::SetHexa(std::vector<HexaByte> * arg)
+void BCDHexaDecimal::SetHexa(vector<HexaByte> * arg)
 {
     hexaValue = arg;
 }
 
-std::vector<HexaByte> * BCDHexaDecimal::GetHexa()
+vector<HexaByte> * BCDHexaDecimal::GetHexa()
 {
     return hexaValue;
 }
@@ -44,16 +44,18 @@ int BCDHexaDecimal::GetValue()
 
 void BCDHexaDecimal::HexaToValue()
 {
-    std::string * parseValue = new std::string();
+    string parseValue;
     for (size_t i = 0; i < hexaValue->size(); i++) {
-        parseValue->append(*hexaValue->at(i).GetBCDStr());
+        parseValue.append(hexaValue->at(i).GetBCDStr());
     }
-    myValue = std::stoi(*parseValue);
+    myValue = stoi(parseValue);
 }
 
 void BCDHexaDecimal::ValueToHexa()
 {
-    std::string parseValue = std::to_string(myValue);
+    hexaValue->clear();
+
+    string parseValue = to_string(myValue);
     if (parseValue.length() % 2 != 0) {
         parseValue.insert(0, "0");
     }
@@ -65,7 +67,7 @@ void BCDHexaDecimal::ValueToHexa()
         }
     }
     for (size_t i = 0; i < parseValue.length() / 2; i++) {
-        std::string oneChar = parseValue.substr(i * 2, i * 2 + 2);
+        string oneChar = parseValue.substr(i * 2, i * 2 + 2);
         char addChar[3] = { oneChar[0], oneChar[1], '\0' };
         HexaByte * h = new HexaByte(addChar);
         hexaValue->push_back(*h);
@@ -74,7 +76,7 @@ void BCDHexaDecimal::ValueToHexa()
 
 BCDHexaDecimal::BCDHexaDecimal()
 {
-    hexaValue = new std::vector<HexaByte>();
+    hexaValue = new vector<HexaByte>();
 }
 
 BCDHexaDecimal::~BCDHexaDecimal()
