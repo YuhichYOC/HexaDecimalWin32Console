@@ -38,7 +38,7 @@ void IntHexaDecimalTest::IntHexaDecimalTest02()
     h1->SetValue(255);
     HexaByte * h2 = new HexaByte();
     h2->SetValue(255);
-    vector<HexaByte> * testValue = new vector<HexaByte>();
+    std::vector<HexaByte> * testValue = new std::vector<HexaByte>();
     testValue->push_back(*h1);
     testValue->push_back(*h2);
     IntHexaDecimal * h = new IntHexaDecimal();
@@ -96,7 +96,7 @@ void IntHexaDecimalTest::IntHexaDecimalTest04()
     h1->SetValue(255);
     HexaByte * h2 = new HexaByte();
     h2->SetValue(255);
-    vector<HexaByte> * testValue = new vector<HexaByte>();
+    std::vector<HexaByte> * testValue = new std::vector<HexaByte>();
     testValue->push_back(*h1);
     testValue->push_back(*h2);
     int testSize = 4;

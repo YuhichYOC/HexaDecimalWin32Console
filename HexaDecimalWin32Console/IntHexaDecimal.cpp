@@ -22,12 +22,12 @@ int IntHexaDecimal::GetSize()
     return mySize;
 }
 
-void IntHexaDecimal::SetHexa(vector<HexaByte> * arg)
+void IntHexaDecimal::SetHexa(std::vector<HexaByte> * arg)
 {
     hexaValue = arg;
 }
 
-vector<HexaByte> * IntHexaDecimal::GetHexa()
+std::vector<HexaByte>* IntHexaDecimal::GetHexa()
 {
     return hexaValue;
 }
@@ -77,12 +77,12 @@ void IntHexaDecimal::ValueToHexa()
         HexaByte * h = new HexaByte(add);
         hexaValue->push_back(*h);
     }
-    reverse(begin(*hexaValue), end(*hexaValue));
+    std::reverse(std::begin(*hexaValue), std::end(*hexaValue));
 }
 
 IntHexaDecimal::IntHexaDecimal()
 {
-    hexaValue = new vector<HexaByte>();
+    hexaValue = new std::vector<HexaByte>();
 }
 
 IntHexaDecimal::~IntHexaDecimal()

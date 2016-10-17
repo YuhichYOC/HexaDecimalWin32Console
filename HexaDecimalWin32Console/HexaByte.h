@@ -29,9 +29,9 @@ public:
 
     char * GetHexa();
 
-    string GetRawStr();
+    std::string * GetRawStr();
 
-    string GetBCDStr();
+    std::string * GetBCDStr();
 
     HexaByte();
 

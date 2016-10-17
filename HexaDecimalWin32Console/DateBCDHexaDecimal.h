@@ -12,19 +12,19 @@ private:
 
     int mySize;
 
-    vector<HexaByte> * hexaValue;
+    std::vector<HexaByte> * hexaValue;
 
     int yyyy;
 
-    string YYYYtoString();
+    std::string * YYYYtoString();
 
     int mm;
 
-    string MMtoString();
+    std::string * MMtoString();
 
     int dd;
 
-    string DDtoString();
+    std::string * DDtoString();
 
 public:
 
@@ -36,13 +36,13 @@ public:
 
     int GetSize();
 
-    void SetHexa(vector<HexaByte> * arg);
+    void SetHexa(std::vector<HexaByte> * arg);
 
-    vector<HexaByte> * GetHexa();
+    std::vector<HexaByte> * GetHexa();
 
     void SetValue(int arg1yyyy, int arg2mm, int arg3dd);
 
-    string GetBCDStr();
+    std::string * GetBCDStr();
 
     void HexaToValue();
 
