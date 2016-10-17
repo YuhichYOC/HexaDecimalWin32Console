@@ -60,7 +60,6 @@ void DateBCDHexaDecimalTest::DateBCDHexaDecimalTest02()
     DateBCDHexaDecimal * h = new DateBCDHexaDecimal();
     h->SetHexa(testValue);
     h->HexaToValue();
-    h->ValueToHexa();
 
     string test;
     test.assign("20160623");
@@ -150,7 +149,6 @@ void DateBCDHexaDecimalTest::DateBCDHexaDecimalTest04()
     h->SetHexa(testValue);
     h->SetSize(testSize);
     h->HexaToValue();
-    h->ValueToHexa();
 
     string test;
     test.assign("00000020160623");

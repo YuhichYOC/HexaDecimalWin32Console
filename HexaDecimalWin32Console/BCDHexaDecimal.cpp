@@ -53,8 +53,6 @@ void BCDHexaDecimal::HexaToValue()
 
 void BCDHexaDecimal::ValueToHexa()
 {
-    hexaValue->clear();
-
     string parseValue = to_string(myValue);
     if (parseValue.length() % 2 != 0) {
         parseValue.insert(0, "0");
