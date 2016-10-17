@@ -64,7 +64,12 @@ void DateBCDHexaDecimalTest::DateBCDHexaDecimalTest02()
     string test;
     test.assign("20160623");
 
+    /*
     if ((h->GetBCDStr() == test) == 0) {
+    testSuccess = true;
+    }
+    */
+    if (h->GetBCDStr() == test) {
         testSuccess = true;
     }
 
@@ -148,7 +153,12 @@ void DateBCDHexaDecimalTest::DateBCDHexaDecimalTest04()
     string test;
     test.assign("00000020160623");
 
+    /*
     if ((h->GetBCDStr() == test) == 0) {
+    testSuccess = true;
+    }
+    */
+    if (h->GetBCDStr() == test) {
         testSuccess = true;
     }
 

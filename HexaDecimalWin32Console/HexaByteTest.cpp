@@ -17,12 +17,12 @@ void HexaByteTest::HexaByteTest01()
 
     string test("7B");
 
-    /*  string operator == returns "0" ( cast into bool then returns "false" ) when left side equals right side.
-    if (h->GetRawStr() == test) {
-    testSuccess = true;
+    /*
+    if ((h->GetRawStr() == test) == 0) {
+        testSuccess = true;
     }
     */
-    if ((h->GetRawStr() == test) == 0) {
+    if (h->GetRawStr() == test) {
         testSuccess = true;
     }
 
@@ -56,12 +56,12 @@ void HexaByteTest::HexaByteTest03()
 
     string test("20");
 
-    /*  string operator == returns "0" ( cast into bool then returns "false" ) when left side equals right side.
-    if (h->GetBCDStr() == test) {
-    testSuccess = true;
+    /*
+    if ((h->GetBCDStr() == test) == 0) {
+        testSuccess = true;
     }
     */
-    if ((h->GetBCDStr() == test) == 0) {
+    if (h->GetBCDStr() == test) {
         testSuccess = true;
     }
 

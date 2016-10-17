@@ -62,11 +62,11 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest02()
     test.assign("0xFFFF");
 
     /*
-    if (h->GetValue() == test) {
-    testSuccess = true;
+    if ((h->GetValue() == test) == 0) {
+        testSuccess = true;
     }
     */
-    if ((h->GetValue() == test) == 0) {
+    if (h->GetValue() == test) {
         testSuccess = true;
     }
 
@@ -155,7 +155,12 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest04()
     string test;
     test.assign("0x01020304050000");
 
+    /*
     if ((h->GetValue() == test) == 0) {
+    testSuccess = true;
+    }
+    */
+    if (h->GetValue() == test) {
         testSuccess = true;
     }
 

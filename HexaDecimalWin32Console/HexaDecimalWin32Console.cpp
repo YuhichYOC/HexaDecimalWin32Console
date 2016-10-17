@@ -258,6 +258,8 @@ void RawStrHexaDecimalTest04()
 
 int main()
 {
+    cout << "Test started." << "\n";
+
     BCDHexaDecimalTest01();
     BCDHexaDecimalTest02();
     BCDHexaDecimalTest03();
