@@ -45,10 +45,6 @@ void RawStrHexaDecimal::SetValue(string arg)
 
 string RawStrHexaDecimal::GetValue()
 {
-    myValue.assign("0x");
-    for (size_t i = 0; i < hexaValue->size(); i++) {
-        myValue.append(hexaValue->at(i).GetRawStr());
-    }
     return myValue;
 }
 
@@ -66,7 +62,7 @@ void RawStrHexaDecimal::HexaToValue()
             myValue.append(hexaValue->at(i).GetRawStr());
         }
         else {
-            myValue.append("00");
+            myValue.append("\0\0");
         }
     }
 }
@@ -85,7 +81,7 @@ void RawStrHexaDecimal::ValueToHexa()
 
     int iLoopCount = (int)parseValue.length() / 2;
     for (int i = 0; i < iLoopCount; i++) {
-        string oneChar = parseValue.substr(i * 2, 2);
+        string oneChar = parseValue.substr(i * 2, i * 2 + 2);
         char addChar[3] = { oneChar[0], oneChar[1], '\0' };
         HexaByte * h = new HexaByte(addChar);
         hexaValue->push_back(*h);

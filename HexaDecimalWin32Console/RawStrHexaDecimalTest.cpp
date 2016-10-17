@@ -151,7 +151,6 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest04()
     h->SetHexa(testValue);
     h->SetSize(testSize);
     h->HexaToValue();
-    h->ValueToHexa();
 
     string test;
     test.assign("0x01020304050000");

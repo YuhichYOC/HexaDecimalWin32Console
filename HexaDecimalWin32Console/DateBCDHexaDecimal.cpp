@@ -85,7 +85,7 @@ string DateBCDHexaDecimal::GetBCDStr()
 {
     string ret;
     for (size_t i = 0; i < hexaValue->size(); i++) {
-        ret.append(hexaValue->at(i).GetRawStr());
+        ret.append(hexaValue->at(i).GetBCDStr());
     }
     return ret;
 }
@@ -100,8 +100,6 @@ void DateBCDHexaDecimal::HexaToValue()
 
 void DateBCDHexaDecimal::ValueToHexa()
 {
-    hexaValue->clear();
-
     string parseValue;
     parseValue.append(YYYYtoString());
     parseValue.append(MMtoString());
