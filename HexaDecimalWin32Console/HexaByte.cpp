@@ -48,23 +48,23 @@ char * HexaByte::GetHexa()
     return hexaValue;
 }
 
-std::string * HexaByte::GetRawStr()
+string HexaByte::GetRawStr()
 {
-    std::string * retVal = new std::string();
+    string ret;
     for (int i = 0; i < 2; i++) {
-        retVal->push_back(hexaValue[i]);
+        ret.push_back(hexaValue[i]);
     }
-    return retVal;
+    return ret;
 }
 
-std::string * HexaByte::GetBCDStr()
+string HexaByte::GetBCDStr()
 {
-    std::string * retVal = new std::string();
-    retVal->assign(std::to_string(myValue));
-    if (retVal->length() == 1) {
-        retVal->insert(0, "0");
+    string ret;
+    ret.assign(to_string(myValue));
+    if (ret.length() == 1) {
+        ret.insert(0, "0");
     }
-    return retVal;
+    return ret;
 }
 
 HexaByte::HexaByte()

@@ -22,12 +22,12 @@ int DateBCDHexaDecimal::GetSize()
     return mySize;
 }
 
-void DateBCDHexaDecimal::SetHexa(std::vector<HexaByte>* arg)
+void DateBCDHexaDecimal::SetHexa(vector<HexaByte> * arg)
 {
     hexaValue = arg;
 }
 
-std::vector<HexaByte>* DateBCDHexaDecimal::GetHexa()
+vector<HexaByte>* DateBCDHexaDecimal::GetHexa()
 {
     return hexaValue;
 }
@@ -39,71 +39,71 @@ void DateBCDHexaDecimal::SetValue(int arg1yyyy, int arg2mm, int arg3dd)
     dd = arg3dd;
 }
 
-std::string * DateBCDHexaDecimal::YYYYtoString()
+string DateBCDHexaDecimal::YYYYtoString()
 {
-    std::string * retVal = new std::string();
+    string ret;
     if (yyyy / 1000 >= 1) {
-        retVal->append(std::to_string(yyyy));
+        ret.append(to_string(yyyy));
     }
     else if (yyyy / 100 >= 1) {
-        retVal->append("0").append(std::to_string(yyyy));
+        ret.append("0").append(to_string(yyyy));
     }
     else if (yyyy / 10 >= 1) {
-        retVal->append("00").append(std::to_string(yyyy));
+        ret.append("00").append(to_string(yyyy));
     }
     else {
-        retVal->append("000").append(std::to_string(yyyy));
+        ret.append("000").append(to_string(yyyy));
     }
-    return retVal;
+    return ret;
 }
 
-std::string * DateBCDHexaDecimal::MMtoString()
+string DateBCDHexaDecimal::MMtoString()
 {
-    std::string * retVal = new std::string();
+    string ret;
     if (mm / 10 >= 1) {
-        retVal->append(std::to_string(mm));
+        ret.append(to_string(mm));
     }
     else {
-        retVal->append("0").append(std::to_string(mm));
+        ret.append("0").append(to_string(mm));
     }
-    return retVal;
+    return ret;
 }
 
-std::string * DateBCDHexaDecimal::DDtoString()
+string DateBCDHexaDecimal::DDtoString()
 {
-    std::string * retVal = new std::string();
+    string ret;
     if (dd / 10 >= 1) {
-        retVal->append(std::to_string(dd));
+        ret.append(to_string(dd));
     }
     else {
-        retVal->append("0").append(std::to_string(dd));
+        ret.append("0").append(to_string(dd));
     }
-    return retVal;
+    return ret;
 }
 
-std::string * DateBCDHexaDecimal::GetBCDStr()
+string DateBCDHexaDecimal::GetBCDStr()
 {
-    std::string * retVal = new std::string();
+    string ret;
     for (size_t i = 0; i < hexaValue->size(); i++) {
-        retVal->append(*hexaValue->at(i).GetBCDStr());
+        ret.append(hexaValue->at(i).GetBCDStr());
     }
-    return retVal;
+    return ret;
 }
 
 void DateBCDHexaDecimal::HexaToValue()
 {
     int startAt = hexaValue->size() - 4;
-    yyyy = std::stoi(hexaValue->at(startAt).GetBCDStr()->append(*hexaValue->at(startAt + 1).GetBCDStr()));
-    mm = std::stoi(*hexaValue->at(startAt + 2).GetBCDStr());
-    dd = std::stoi(*hexaValue->at(startAt + 3).GetBCDStr());
+    yyyy = stoi(hexaValue->at(startAt).GetBCDStr().append(hexaValue->at(startAt + 1).GetBCDStr()));
+    mm = stoi(hexaValue->at(startAt + 2).GetBCDStr());
+    dd = stoi(hexaValue->at(startAt + 3).GetBCDStr());
 }
 
 void DateBCDHexaDecimal::ValueToHexa()
 {
-    std::string * parseValue = new std::string();
-    parseValue->append(*YYYYtoString());
-    parseValue->append(*MMtoString());
-    parseValue->append(*DDtoString());
+    string parseValue;
+    parseValue.append(YYYYtoString());
+    parseValue.append(MMtoString());
+    parseValue.append(DDtoString());
     if (mySize > 4) {
         for (int i = 0; i < mySize - 4; i++) {
             char addChar[3] = { '0', '0', '\0' };
@@ -111,8 +111,8 @@ void DateBCDHexaDecimal::ValueToHexa()
             hexaValue->push_back(*h);
         }
     }
-    for (size_t i = 0; i < parseValue->length() / 2; i++) {
-        std::string oneChar = parseValue->substr(i * 2, i * 2 + 2);
+    for (size_t i = 0; i < parseValue.length() / 2; i++) {
+        string oneChar = parseValue.substr(i * 2, i * 2 + 2);
         char addChar[3] = { oneChar[0], oneChar[1], '\0' };
         HexaByte * h = new HexaByte(addChar);
         hexaValue->push_back(*h);
@@ -121,7 +121,7 @@ void DateBCDHexaDecimal::ValueToHexa()
 
 DateBCDHexaDecimal::DateBCDHexaDecimal()
 {
-    hexaValue = new std::vector<HexaByte>();
+    hexaValue = new vector<HexaByte>();
 }
 
 DateBCDHexaDecimal::~DateBCDHexaDecimal()

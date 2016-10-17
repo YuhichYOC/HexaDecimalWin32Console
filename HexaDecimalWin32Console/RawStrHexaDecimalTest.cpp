@@ -11,8 +11,8 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest01()
 {
     testSuccess = false;
 
-    std::string * testValue = new std::string();
-    testValue->assign("0x0102030405");
+    string testValue;
+    testValue.assign("0x0102030405");
     RawStrHexaDecimal * h = new RawStrHexaDecimal();
     h->SetValue(testValue);
     h->ValueToHexa();
@@ -51,15 +51,15 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest02()
     h1->SetValue(255);
     HexaByte * h2 = new HexaByte();
     h2->SetValue(255);
-    std::vector<HexaByte> * testValue = new std::vector<HexaByte>();
+    vector<HexaByte> * testValue = new vector<HexaByte>();
     testValue->push_back(*h1);
     testValue->push_back(*h2);
     RawStrHexaDecimal * h = new RawStrHexaDecimal();
     h->SetHexa(testValue);
     h->HexaToValue();
 
-    std::string * test = new std::string();
-    test->assign("0xFFFF");
+    string test;
+    test.assign("0xFFFF");
 
     /*
     if (h->GetValue() == test) {
@@ -79,8 +79,8 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest03()
 {
     testSuccess = false;
 
-    std::string * testValue = new std::string();
-    testValue->assign("0x0102030405");
+    string testValue;
+    testValue.assign("0x0102030405");
     int testSize = 7;
     RawStrHexaDecimal * h = new RawStrHexaDecimal();
     h->SetValue(testValue);
@@ -140,7 +140,7 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest04()
     h4->SetValue((uint8_t)0x04);
     HexaByte * h5 = new HexaByte();
     h5->SetValue((uint8_t)0x05);
-    std::vector<HexaByte> * testValue = new std::vector<HexaByte>();
+    vector<HexaByte> * testValue = new vector<HexaByte>();
     testValue->push_back(*h1);
     testValue->push_back(*h2);
     testValue->push_back(*h3);
@@ -152,8 +152,8 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest04()
     h->SetSize(testSize);
     h->HexaToValue();
 
-    std::string * test = new std::string();
-    test->assign("0x01020304050000");
+    string test;
+    test.assign("0x01020304050000");
 
     if ((h->GetValue() == test) == 0) {
         testSuccess = true;

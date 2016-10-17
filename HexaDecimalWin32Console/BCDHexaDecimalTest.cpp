@@ -44,7 +44,7 @@ void BCDHexaDecimalTest::BCDHexaDecimalTest02()
     h2->SetValue(16);
     HexaByte * h3 = new HexaByte();
     h3->SetValue(01);
-    std::vector<HexaByte> * testValue = new std::vector<HexaByte>();
+    vector<HexaByte> * testValue = new vector<HexaByte>();
     testValue->push_back(*h1);
     testValue->push_back(*h2);
     testValue->push_back(*h3);
@@ -110,7 +110,7 @@ void BCDHexaDecimalTest::BCDHexaDecimalTest04()
     h2->SetValue(16);
     HexaByte * h3 = new HexaByte();
     h3->SetValue(01);
-    std::vector<HexaByte> * testValue = new std::vector<HexaByte>();
+    vector<HexaByte> * testValue = new vector<HexaByte>();
     testValue->push_back(*h1);
     testValue->push_back(*h2);
     testValue->push_back(*h3);
