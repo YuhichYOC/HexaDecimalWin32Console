@@ -13,7 +13,7 @@ private:
 
     uint8_t myValue;
 
-    char hexaValue[2];
+    char hexaValue[3];
 
     char replaceArray[17] = "0123456789ABCDEF";
 

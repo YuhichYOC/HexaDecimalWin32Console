@@ -25,6 +25,7 @@ void HexaByte::SetValue(uint8_t arg)
 
     hexaValue[0] = upper;
     hexaValue[1] = lower;
+    hexaValue[2] = char('\0');
 }
 
 uint8_t HexaByte::GetValue()
@@ -36,6 +37,7 @@ void HexaByte::SetHexa(char arg[2])
 {
     hexaValue[0] = arg[0];
     hexaValue[1] = arg[1];
+    hexaValue[2] = char('\0');
 
     char upperValue = FindPositionInReplaceArray(arg[0]);
     char lowerValue = FindPositionInReplaceArray(arg[1]);
@@ -83,12 +85,14 @@ HexaByte::HexaByte(uint8_t arg)
 
     hexaValue[0] = upper;
     hexaValue[1] = lower;
+    hexaValue[2] = char('\0');
 }
 
 HexaByte::HexaByte(char arg[2])
 {
     hexaValue[0] = arg[0];
     hexaValue[1] = arg[1];
+    hexaValue[2] = char('\0');
 
     char upperValue = FindPositionInReplaceArray(arg[0]);
     char lowerValue = FindPositionInReplaceArray(arg[1]);

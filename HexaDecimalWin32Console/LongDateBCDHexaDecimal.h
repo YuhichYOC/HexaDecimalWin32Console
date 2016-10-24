@@ -4,7 +4,7 @@
 
 #include "IHexaDecimal.h"
 
-class BCDHexaDecimal : public IHexaDecimal
+class LongDateBCDHexaDecimal : public IHexaDecimal
 {
 private:
 
@@ -14,7 +14,29 @@ private:
 
     vector<HexaByte *> * hexaValue;
 
-    int myValue;
+    int yyyy;
+
+    string YYYYtoString();
+
+    int mm;
+
+    string MMtoString();
+
+    int dd;
+
+    string DDtoString();
+
+    int hh24;
+
+    string HH24toString();
+
+    int mi;
+
+    string MItoString();
+
+    int ss;
+
+    string SStoString();
 
 public:
 
@@ -30,9 +52,9 @@ public:
 
     vector<HexaByte *> * GetHexa();
 
-    void SetValue(int arg);
+    void SetValue(int arg1yyyy, int arg2mm, int arg3dd, int hh24, int mi, int ss);
 
-    int GetValue();
+    string GetBCDStr();
 
     int GetNumericValue();
 
@@ -42,9 +64,9 @@ public:
 
     void ValueToHexa();
 
-    BCDHexaDecimal();
+    LongDateBCDHexaDecimal();
 
     void DisposeHexaValue();
 
-    ~BCDHexaDecimal();
+    ~LongDateBCDHexaDecimal();
 };

@@ -22,18 +22,19 @@ int BCDHexaDecimal::GetSize()
     return mySize;
 }
 
-void BCDHexaDecimal::SetHexa(vector<HexaByte> * arg)
+void BCDHexaDecimal::SetHexa(vector<HexaByte *> * arg)
 {
     hexaValue = arg;
 }
 
-vector<HexaByte> * BCDHexaDecimal::GetHexa()
+vector<HexaByte *> * BCDHexaDecimal::GetHexa()
 {
     return hexaValue;
 }
 
 void BCDHexaDecimal::SetValue(int arg)
 {
+    hexaValue = new vector<HexaByte *>();
     myValue = arg;
 }
 
@@ -42,18 +43,33 @@ int BCDHexaDecimal::GetValue()
     return myValue;
 }
 
+int BCDHexaDecimal::GetNumericValue()
+{
+    return myValue;
+}
+
+string BCDHexaDecimal::GetRawValue()
+{
+    string retVal;
+    retVal.assign("0x");
+    for (size_t i = 0; i < hexaValue->size(); i++) {
+        retVal.append(hexaValue->at(i)->GetBCDStr());
+    }
+    return retVal;
+}
+
 void BCDHexaDecimal::HexaToValue()
 {
     string parseValue;
     for (size_t i = 0; i < hexaValue->size(); i++) {
-        parseValue.append(hexaValue->at(i).GetBCDStr());
+        parseValue.append(hexaValue->at(i)->GetBCDStr());
     }
     myValue = stoi(parseValue);
 }
 
 void BCDHexaDecimal::ValueToHexa()
 {
-    hexaValue->clear();
+    DisposeHexaValue();
 
     string parseValue = to_string(myValue);
     if (parseValue.length() % 2 != 0) {
@@ -63,23 +79,35 @@ void BCDHexaDecimal::ValueToHexa()
         for (int i = 0; i < mySize - (int)parseValue.length() / 2; i++) {
             char addChar[3] = { '0', '0', '\0' };
             HexaByte * h = new HexaByte(addChar);
-            hexaValue->push_back(*h);
+            hexaValue->push_back(h);
         }
     }
     for (size_t i = 0; i < parseValue.length() / 2; i++) {
         string oneChar = parseValue.substr(i * 2, i * 2 + 2);
         char addChar[3] = { oneChar[0], oneChar[1], '\0' };
         HexaByte * h = new HexaByte(addChar);
-        hexaValue->push_back(*h);
+        hexaValue->push_back(h);
     }
 }
 
 BCDHexaDecimal::BCDHexaDecimal()
 {
-    hexaValue = new vector<HexaByte>();
+    hexaValue = nullptr;
+}
+
+void BCDHexaDecimal::DisposeHexaValue()
+{
+    if (hexaValue == nullptr) {
+        return;
+    }
+    for (size_t i = 0; i < hexaValue->size(); i++) {
+        delete hexaValue->at(i);
+    }
+    hexaValue->clear();
 }
 
 BCDHexaDecimal::~BCDHexaDecimal()
 {
+    DisposeHexaValue();
     delete hexaValue;
 }

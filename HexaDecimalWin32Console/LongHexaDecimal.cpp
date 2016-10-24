@@ -1,54 +1,54 @@
 #include "stdafx.h"
 
-#include "IntHexaDecimal.h"
+#include "LongHexaDecimal.h"
 
-void IntHexaDecimal::SetType(ValueType arg)
+void LongHexaDecimal::SetType(ValueType arg)
 {
     myType = arg;
 }
 
-ValueType IntHexaDecimal::GetType()
+ValueType LongHexaDecimal::GetType()
 {
     return myType;
 }
 
-void IntHexaDecimal::SetSize(int arg)
+void LongHexaDecimal::SetSize(int arg)
 {
     mySize = arg;
 }
 
-int IntHexaDecimal::GetSize()
+int LongHexaDecimal::GetSize()
 {
     return mySize;
 }
 
-void IntHexaDecimal::SetHexa(vector<HexaByte *> * arg)
+void LongHexaDecimal::SetHexa(vector<HexaByte *> * arg)
 {
     hexaValue = arg;
 }
 
-vector<HexaByte *> * IntHexaDecimal::GetHexa()
+vector<HexaByte *> * LongHexaDecimal::GetHexa()
 {
     return hexaValue;
 }
 
-void IntHexaDecimal::SetValue(int arg)
+void LongHexaDecimal::SetValue(long arg)
 {
     hexaValue = new vector<HexaByte *>();
     myValue = arg;
 }
 
-int IntHexaDecimal::GetValue()
+long LongHexaDecimal::GetValue()
 {
     return myValue;
 }
 
-int IntHexaDecimal::GetNumericValue()
+int LongHexaDecimal::GetNumericValue()
 {
     return myValue;
 }
 
-string IntHexaDecimal::GetRawValue()
+string LongHexaDecimal::GetRawValue()
 {
     string retVal;
     retVal.assign("0x");
@@ -58,7 +58,7 @@ string IntHexaDecimal::GetRawValue()
     return retVal;
 }
 
-void IntHexaDecimal::HexaToValue()
+void LongHexaDecimal::HexaToValue()
 {
     myValue = 0;
 
@@ -73,12 +73,12 @@ void IntHexaDecimal::HexaToValue()
     }
 }
 
-void IntHexaDecimal::ValueToHexa()
+void LongHexaDecimal::ValueToHexa()
 {
     DisposeHexaValue();
 
     uint8_t mod = 0;
-    int parseValue = myValue;
+    long parseValue = myValue;
     while (parseValue != 0) {
         mod = parseValue % 256;
         HexaByte * h = new HexaByte(mod);
@@ -96,12 +96,12 @@ void IntHexaDecimal::ValueToHexa()
     reverse(begin(*hexaValue), end(*hexaValue));
 }
 
-IntHexaDecimal::IntHexaDecimal()
+LongHexaDecimal::LongHexaDecimal()
 {
     hexaValue = nullptr;
 }
 
-void IntHexaDecimal::DisposeHexaValue()
+void LongHexaDecimal::DisposeHexaValue()
 {
     if (hexaValue == nullptr) {
         return;
@@ -112,8 +112,7 @@ void IntHexaDecimal::DisposeHexaValue()
     hexaValue->clear();
 }
 
-IntHexaDecimal::~IntHexaDecimal()
+LongHexaDecimal::~LongHexaDecimal()
 {
-    DisposeHexaValue();
     delete hexaValue;
 }

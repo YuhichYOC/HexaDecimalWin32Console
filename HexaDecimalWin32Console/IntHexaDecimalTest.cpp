@@ -20,10 +20,10 @@ void IntHexaDecimalTest::IntHexaDecimalTest01()
     uint8_t test02 = (uint8_t)0xFF;
 
     testSuccess = true;
-    if (h->GetHexa()->at(0).GetValue() != test01) {
+    if (h->GetHexa()->at(0)->GetValue() != test01) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(1).GetValue() != test02) {
+    if (h->GetHexa()->at(1)->GetValue() != test02) {
         testSuccess = false;
     }
 
@@ -38,9 +38,9 @@ void IntHexaDecimalTest::IntHexaDecimalTest02()
     h1->SetValue(255);
     HexaByte * h2 = new HexaByte();
     h2->SetValue(255);
-    vector<HexaByte> * testValue = new vector<HexaByte>();
-    testValue->push_back(*h1);
-    testValue->push_back(*h2);
+    vector<HexaByte *> * testValue = new vector<HexaByte *>();
+    testValue->push_back(h1);
+    testValue->push_back(h2);
     IntHexaDecimal * h = new IntHexaDecimal();
     h->SetHexa(testValue);
     h->HexaToValue();
@@ -51,8 +51,6 @@ void IntHexaDecimalTest::IntHexaDecimalTest02()
     }
 
     delete h;
-    delete h1;
-    delete h2;
 }
 
 void IntHexaDecimalTest::IntHexaDecimalTest03()
@@ -72,16 +70,16 @@ void IntHexaDecimalTest::IntHexaDecimalTest03()
     uint8_t test04 = (uint8_t)0xFF;
 
     testSuccess = true;
-    if (h->GetHexa()->at(0).GetValue() != test01) {
+    if (h->GetHexa()->at(0)->GetValue() != test01) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(1).GetValue() != test02) {
+    if (h->GetHexa()->at(1)->GetValue() != test02) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(2).GetValue() != test03) {
+    if (h->GetHexa()->at(2)->GetValue() != test03) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(3).GetValue() != test04) {
+    if (h->GetHexa()->at(3)->GetValue() != test04) {
         testSuccess = false;
     }
 
@@ -96,9 +94,9 @@ void IntHexaDecimalTest::IntHexaDecimalTest04()
     h1->SetValue(255);
     HexaByte * h2 = new HexaByte();
     h2->SetValue(255);
-    vector<HexaByte> * testValue = new vector<HexaByte>();
-    testValue->push_back(*h1);
-    testValue->push_back(*h2);
+    vector<HexaByte *> * testValue = new vector<HexaByte *>();
+    testValue->push_back(h1);
+    testValue->push_back(h2);
     int testSize = 4;
     IntHexaDecimal * h = new IntHexaDecimal();
     h->SetHexa(testValue);
@@ -111,8 +109,6 @@ void IntHexaDecimalTest::IntHexaDecimalTest04()
     }
 
     delete h;
-    delete h1;
-    delete h2;
 }
 
 IntHexaDecimalTest::IntHexaDecimalTest()

@@ -4,7 +4,7 @@
 
 #include "IHexaDecimal.h"
 
-class BCDHexaDecimal : public IHexaDecimal
+class StrHexaDecimal : public IHexaDecimal
 {
 private:
 
@@ -14,7 +14,7 @@ private:
 
     vector<HexaByte *> * hexaValue;
 
-    int myValue;
+    string myValue;
 
 public:
 
@@ -30,9 +30,9 @@ public:
 
     vector<HexaByte *> * GetHexa();
 
-    void SetValue(int arg);
+    void SetValue(string arg);
 
-    int GetValue();
+    string GetValue();
 
     int GetNumericValue();
 
@@ -42,9 +42,9 @@ public:
 
     void ValueToHexa();
 
-    BCDHexaDecimal();
+    StrHexaDecimal();
 
     void DisposeHexaValue();
 
-    ~BCDHexaDecimal();
+    ~StrHexaDecimal();
 };

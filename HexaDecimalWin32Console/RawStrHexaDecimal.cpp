@@ -22,18 +22,19 @@ int RawStrHexaDecimal::GetSize()
     return mySize;
 }
 
-void RawStrHexaDecimal::SetHexa(vector<HexaByte> * arg)
+void RawStrHexaDecimal::SetHexa(vector<HexaByte *> * arg)
 {
     hexaValue = arg;
 }
 
-vector<HexaByte> * RawStrHexaDecimal::GetHexa()
+vector<HexaByte *> * RawStrHexaDecimal::GetHexa()
 {
     return hexaValue;
 }
 
 void RawStrHexaDecimal::SetValue(string arg)
 {
+    hexaValue = new vector<HexaByte *>();
     if (arg.substr(0, 2) == "0x") {
         myValue.assign(arg);
     }
@@ -47,7 +48,31 @@ string RawStrHexaDecimal::GetValue()
 {
     myValue.assign("0x");
     for (size_t i = 0; i < hexaValue->size(); i++) {
-        myValue.append(hexaValue->at(i).GetRawStr());
+        myValue.append(hexaValue->at(i)->GetRawStr());
+    }
+    return myValue;
+}
+
+int RawStrHexaDecimal::GetNumericValue()
+{
+    int retVal = 0;
+    int iLoopCount = (int)hexaValue->size();
+    for (int i = iLoopCount; i > 0; i--) {
+        int radix = 1;
+        int jLoopCount = (int)hexaValue->size() - i;
+        for (int j = 0; j < jLoopCount; j++) {
+            radix *= 256;
+        }
+        retVal += hexaValue->at(i - 1)->GetValue() * radix;
+    }
+    return retVal;
+}
+
+string RawStrHexaDecimal::GetRawValue()
+{
+    myValue.assign("0x");
+    for (size_t i = 0; i < hexaValue->size(); i++) {
+        myValue.append(hexaValue->at(i)->GetRawStr());
     }
     return myValue;
 }
@@ -63,7 +88,7 @@ void RawStrHexaDecimal::HexaToValue()
 
     for (int i = 0; i < loopCount; i++) {
         if (i < loopCount) {
-            myValue.append(hexaValue->at(i).GetRawStr());
+            myValue.append(hexaValue->at(i)->GetRawStr());
         }
         else {
             myValue.append("00");
@@ -73,7 +98,7 @@ void RawStrHexaDecimal::HexaToValue()
 
 void RawStrHexaDecimal::ValueToHexa()
 {
-    hexaValue->clear();
+    DisposeHexaValue();
 
     string parseValue = myValue;
     if (parseValue.substr(0, 2) == "0x") {
@@ -88,14 +113,14 @@ void RawStrHexaDecimal::ValueToHexa()
         string oneChar = parseValue.substr(i * 2, 2);
         char addChar[3] = { oneChar[0], oneChar[1], '\0' };
         HexaByte * h = new HexaByte(addChar);
-        hexaValue->push_back(*h);
+        hexaValue->push_back(h);
     }
     int jLoopCount = mySize - (int)hexaValue->size();
     if (mySize > 0 && 0 < jLoopCount) {
         for (int j = 0; j < jLoopCount; j++) {
             char addChar[3] = { '0', '0', '\0' };
             HexaByte * h = new HexaByte(addChar);
-            hexaValue->push_back(*h);
+            hexaValue->push_back(h);
         }
     }
 }
@@ -103,10 +128,22 @@ void RawStrHexaDecimal::ValueToHexa()
 RawStrHexaDecimal::RawStrHexaDecimal()
 {
     mySize = -1;
-    hexaValue = new vector<HexaByte>();
+    hexaValue = nullptr;
+}
+
+void RawStrHexaDecimal::DisposeHexaValue()
+{
+    if (hexaValue == nullptr) {
+        return;
+    }
+    for (size_t i = 0; i < hexaValue->size(); i++) {
+        delete hexaValue->at(i);
+    }
+    hexaValue->clear();
 }
 
 RawStrHexaDecimal::~RawStrHexaDecimal()
 {
+    DisposeHexaValue();
     delete hexaValue;
 }

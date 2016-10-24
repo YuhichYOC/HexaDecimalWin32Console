@@ -2,9 +2,9 @@
 
 #include "stdafx.h"
 
-#include "HexaByte.h"
+#include "IHexaDecimal.h"
 
-class RawStrHexaDecimal
+class RawStrHexaDecimal : public IHexaDecimal
 {
 private:
 
@@ -12,7 +12,7 @@ private:
 
     int mySize;
 
-    vector<HexaByte> * hexaValue;
+    vector<HexaByte *> * hexaValue;
 
     string myValue;
 
@@ -26,19 +26,25 @@ public:
 
     int GetSize();
 
-    void SetHexa(vector<HexaByte> * arg);
+    void SetHexa(vector<HexaByte *> * arg);
 
-    vector<HexaByte> * GetHexa();
+    vector<HexaByte *> * GetHexa();
 
     void SetValue(string arg);
 
     string GetValue();
+
+    int GetNumericValue();
+
+    string GetRawValue();
 
     void HexaToValue();
 
     void ValueToHexa();
 
     RawStrHexaDecimal();
+
+    void DisposeHexaValue();
 
     ~RawStrHexaDecimal();
 };

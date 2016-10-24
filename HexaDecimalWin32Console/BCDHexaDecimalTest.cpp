@@ -21,13 +21,13 @@ void BCDHexaDecimalTest::BCDHexaDecimalTest01()
     uint8_t test03 = (uint8_t)0x01;
 
     testSuccess = true;
-    if (h->GetHexa()->at(0).GetValue() != test01) {
+    if (h->GetHexa()->at(0)->GetValue() != test01) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(1).GetValue() != test02) {
+    if (h->GetHexa()->at(1)->GetValue() != test02) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(2).GetValue() != test03) {
+    if (h->GetHexa()->at(2)->GetValue() != test03) {
         testSuccess = false;
     }
 
@@ -44,10 +44,10 @@ void BCDHexaDecimalTest::BCDHexaDecimalTest02()
     h2->SetValue(16);
     HexaByte * h3 = new HexaByte();
     h3->SetValue(01);
-    vector<HexaByte> * testValue = new vector<HexaByte>();
-    testValue->push_back(*h1);
-    testValue->push_back(*h2);
-    testValue->push_back(*h3);
+    vector<HexaByte *> * testValue = new vector<HexaByte *>();
+    testValue->push_back(h1);
+    testValue->push_back(h2);
+    testValue->push_back(h3);
     BCDHexaDecimal * h = new BCDHexaDecimal();
     h->SetHexa(testValue);
     h->HexaToValue();
@@ -58,9 +58,6 @@ void BCDHexaDecimalTest::BCDHexaDecimalTest02()
     }
 
     delete h;
-    delete h1;
-    delete h2;
-    delete h3;
 }
 
 void BCDHexaDecimalTest::BCDHexaDecimalTest03()
@@ -81,19 +78,19 @@ void BCDHexaDecimalTest::BCDHexaDecimalTest03()
     uint8_t test05 = (uint8_t)0x01;
 
     testSuccess = true;
-    if (h->GetHexa()->at(0).GetValue() != test01) {
+    if (h->GetHexa()->at(0)->GetValue() != test01) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(1).GetValue() != test02) {
+    if (h->GetHexa()->at(1)->GetValue() != test02) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(2).GetValue() != test03) {
+    if (h->GetHexa()->at(2)->GetValue() != test03) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(3).GetValue() != test04) {
+    if (h->GetHexa()->at(3)->GetValue() != test04) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(4).GetValue() != test05) {
+    if (h->GetHexa()->at(4)->GetValue() != test05) {
         testSuccess = false;
     }
 
@@ -110,10 +107,10 @@ void BCDHexaDecimalTest::BCDHexaDecimalTest04()
     h2->SetValue(16);
     HexaByte * h3 = new HexaByte();
     h3->SetValue(01);
-    vector<HexaByte> * testValue = new vector<HexaByte>();
-    testValue->push_back(*h1);
-    testValue->push_back(*h2);
-    testValue->push_back(*h3);
+    vector<HexaByte *> * testValue = new vector<HexaByte *>();
+    testValue->push_back(h1);
+    testValue->push_back(h2);
+    testValue->push_back(h3);
     int testSize = 5;
     BCDHexaDecimal * h = new BCDHexaDecimal();
     h->SetHexa(testValue);
@@ -126,9 +123,6 @@ void BCDHexaDecimalTest::BCDHexaDecimalTest04()
     }
 
     delete h;
-    delete h1;
-    delete h2;
-    delete h3;
 }
 
 BCDHexaDecimalTest::BCDHexaDecimalTest()

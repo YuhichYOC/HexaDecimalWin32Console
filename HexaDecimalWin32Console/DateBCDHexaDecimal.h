@@ -2,9 +2,9 @@
 
 #include "stdafx.h"
 
-#include "HexaByte.h"
+#include "IHexaDecimal.h"
 
-class DateBCDHexaDecimal
+class DateBCDHexaDecimal : public IHexaDecimal
 {
 private:
 
@@ -12,7 +12,7 @@ private:
 
     int mySize;
 
-    vector<HexaByte> * hexaValue;
+    vector<HexaByte *> * hexaValue;
 
     int yyyy;
 
@@ -36,19 +36,25 @@ public:
 
     int GetSize();
 
-    void SetHexa(vector<HexaByte> * arg);
+    void SetHexa(vector<HexaByte *> * arg);
 
-    vector<HexaByte> * GetHexa();
+    vector<HexaByte *> * GetHexa();
 
     void SetValue(int arg1yyyy, int arg2mm, int arg3dd);
 
     string GetBCDStr();
+
+    int GetNumericValue();
+
+    string GetRawValue();
 
     void HexaToValue();
 
     void ValueToHexa();
 
     DateBCDHexaDecimal();
+
+    void DisposeHexaValue();
 
     ~DateBCDHexaDecimal();
 };

@@ -24,19 +24,19 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest01()
     uint8_t test05 = (uint8_t)0x05;
 
     testSuccess = true;
-    if (h->GetHexa()->at(0).GetValue() != test01) {
+    if (h->GetHexa()->at(0)->GetValue() != test01) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(1).GetValue() != test02) {
+    if (h->GetHexa()->at(1)->GetValue() != test02) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(2).GetValue() != test03) {
+    if (h->GetHexa()->at(2)->GetValue() != test03) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(3).GetValue() != test04) {
+    if (h->GetHexa()->at(3)->GetValue() != test04) {
         testSuccess = false;
     }
-    if (h->GetHexa()->at(4).GetValue() != test05) {
+    if (h->GetHexa()->at(4)->GetValue() != test05) {
         testSuccess = false;
     }
 
@@ -51,9 +51,9 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest02()
     h1->SetValue(255);
     HexaByte * h2 = new HexaByte();
     h2->SetValue(255);
-    vector<HexaByte> * testValue = new vector<HexaByte>();
-    testValue->push_back(*h1);
-    testValue->push_back(*h2);
+    vector<HexaByte *> * testValue = new vector<HexaByte *>();
+    testValue->push_back(h1);
+    testValue->push_back(h2);
     RawStrHexaDecimal * h = new RawStrHexaDecimal();
     h->SetHexa(testValue);
     h->HexaToValue();
@@ -71,8 +71,6 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest02()
     }
 
     delete h;
-    delete h1;
-    delete h2;
 }
 
 void RawStrHexaDecimalTest::RawStrHexaDecimalTest03()
@@ -100,25 +98,25 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest03()
         testSuccess = false;
     }
     else {
-        if (h->GetHexa()->at(0).GetValue() != test01) {
+        if (h->GetHexa()->at(0)->GetValue() != test01) {
             testSuccess = false;
         }
-        if (h->GetHexa()->at(1).GetValue() != test02) {
+        if (h->GetHexa()->at(1)->GetValue() != test02) {
             testSuccess = false;
         }
-        if (h->GetHexa()->at(2).GetValue() != test03) {
+        if (h->GetHexa()->at(2)->GetValue() != test03) {
             testSuccess = false;
         }
-        if (h->GetHexa()->at(3).GetValue() != test04) {
+        if (h->GetHexa()->at(3)->GetValue() != test04) {
             testSuccess = false;
         }
-        if (h->GetHexa()->at(4).GetValue() != test05) {
+        if (h->GetHexa()->at(4)->GetValue() != test05) {
             testSuccess = false;
         }
-        if (h->GetHexa()->at(5).GetValue() != test06) {
+        if (h->GetHexa()->at(5)->GetValue() != test06) {
             testSuccess = false;
         }
-        if (h->GetHexa()->at(6).GetValue() != test07) {
+        if (h->GetHexa()->at(6)->GetValue() != test07) {
             testSuccess = false;
         }
     }
@@ -140,12 +138,12 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest04()
     h4->SetValue((uint8_t)0x04);
     HexaByte * h5 = new HexaByte();
     h5->SetValue((uint8_t)0x05);
-    vector<HexaByte> * testValue = new vector<HexaByte>();
-    testValue->push_back(*h1);
-    testValue->push_back(*h2);
-    testValue->push_back(*h3);
-    testValue->push_back(*h4);
-    testValue->push_back(*h5);
+    vector<HexaByte *> * testValue = new vector<HexaByte *>();
+    testValue->push_back(h1);
+    testValue->push_back(h2);
+    testValue->push_back(h3);
+    testValue->push_back(h4);
+    testValue->push_back(h5);
     int testSize = 7;
     RawStrHexaDecimal * h = new RawStrHexaDecimal();
     h->SetHexa(testValue);
@@ -166,11 +164,6 @@ void RawStrHexaDecimalTest::RawStrHexaDecimalTest04()
     }
 
     delete h;
-    delete h1;
-    delete h2;
-    delete h3;
-    delete h4;
-    delete h5;
 }
 
 RawStrHexaDecimalTest::RawStrHexaDecimalTest()
